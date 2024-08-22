@@ -4,11 +4,13 @@ import HomePage from './pages/HomePage';
 import BookingPage from './pages/BookingPage';
 import PaymentPage from './pages/PaymentPage';
 import PaymentSuccessPage from './components/PaymentSuccessPage';
+import Header from './components/Header';
 
 
 function App() {
   return (
     <Router>
+    <Header/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/book" element={<BookingPage />} />

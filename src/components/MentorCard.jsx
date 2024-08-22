@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FaUniversity, FaBriefcase, FaArrowRight } from 'react-icons/fa';
 import BookingForm from './BookingFrom'; // Import the BookingForm component
-
 const MentorCard = ({ mentor }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
