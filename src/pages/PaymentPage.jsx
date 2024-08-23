@@ -24,6 +24,7 @@ const PaymentPage = () => {
       // After successful payment, confirm the booking
       await axios.post('http://localhost:5000/api/bookings', {
         mentorId: mentor.id,
+        mentorName: mentor.name,
         duration,
         amount,
        

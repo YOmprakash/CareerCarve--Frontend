@@ -35,9 +35,17 @@ const BookingPage = () => {
   useEffect(() => {
     axios.get('http://localhost:5000/api/mentors')
       .then(response => {
-        setMentors(response.data);
-        setFilteredMentors(response.data);
-        console.log(response.data);
+        const data = response.data;
+      const uniqueMentors = Array.from(new Set(data.map(mentor => mentor.id)))
+        .map(id => data.find(mentor => mentor.id === id));
+      
+      setMentors(uniqueMentors);
+      setFilteredMentors(uniqueMentors);
+      console.log('Fetched mentors:', uniqueMentors);
+      
+      setMentors(uniqueMentors);
+      setFilteredMentors(uniqueMentors);
+      console.log('Fetched mentors:', uniqueMentors);
       })
       .catch(error => {
         console.error("There was an error fetching the mentors!", error);

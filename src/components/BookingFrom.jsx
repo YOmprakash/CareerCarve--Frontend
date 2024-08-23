@@ -10,20 +10,9 @@ const BookingForm = ({ selectedMentor }) => {
     e.preventDefault();
     const amount = duration === 30 ? 1000 : duration === 45 ? 1500 : 2000; // Example amounts
 
-    axios.post('http://localhost:5000/api/bookings', {
-      studentName: "Example Student", // Replace with actual student name from state/context
-      mentorId: selectedMentor.id,
-      duration,
-      amount
-    })
-    .then(response => {
-      console.log("Booking successful:", response.data);
-      // Redirect to payment page with booking details
       navigate('/payment', { state: { mentor: selectedMentor, duration, amount } });
-    })
-    .catch(error => {
-      console.error("There was an error creating the booking!", error);
-    });
+  
+   
   };
 
   return (

@@ -24,7 +24,7 @@ const Header = () => {
           <Link to="/book" className="text-lg font-medium text-gray-700 hover:text-blue-500">
             Mentors
           </Link>
-          <Link to="/booking" className="text-lg font-medium text-gray-700 hover:text-blue-500">
+          <Link to="/bookings" className="text-lg font-medium text-gray-700 hover:text-blue-500">
             Booking
           </Link>
         </nav>
