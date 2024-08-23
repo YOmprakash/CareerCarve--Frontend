@@ -1,18 +1,25 @@
-import { useState } from 'react';
-import { FaUniversity, FaBriefcase, FaArrowRight } from 'react-icons/fa';
-import BookingForm from './BookingFrom'; // Import the BookingForm component
+import { useState } from "react";
+import { FaUniversity, FaBriefcase, FaArrowRight } from "react-icons/fa";
+import BookingForm from "./BookingFrom";
+
 const MentorCard = ({ mentor }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
+  const initial = mentor.name.charAt(0).toUpperCase();
   return (
     <div className="relative flex p-4 bg-white border rounded shadow-lg">
-      <img src={mentor.img} alt={mentor.name} className="object-cover w-20 h-20 rounded-full" />
+      <div className="flex items-center  justify-center w-20 h-20 text-2xl font-semibold text-white rounded-full bg-[#1C8EA8]">
+        {initial}
+      </div>
       <div className="px-2 ml-4">
-        <h3 className="mt-4 text-xl font-semibold text-[#333333]">{mentor.name}</h3>
-        <p className="mt-1 font-normal text-gray-500">Number of Sessions ({mentor.sessionsTaken})</p>
+        <h3 className="mt-4 text-xl font-semibold text-[#333333]">
+          {mentor.name}
+        </h3>
+        <p className="mt-1 font-normal text-gray-500">
+          Number of Sessions ({mentor.sessionsTaken})
+        </p>
         <div className="flex items-center justify-between w-full gap-8 mt-2">
           <p className="flex items-center text-sm font-normal text-gray-500">
             <FaUniversity className="mr-2" /> {mentor.university}
@@ -21,8 +28,8 @@ const MentorCard = ({ mentor }) => {
             <FaBriefcase className="mr-2" /> {mentor.currentJob}
           </p>
         </div>
-        <p className="p-1 mt-2 text-gray-600 rounded-md shadow-lg">{mentor.areas.join(" ")}</p>
-        
+        <p className="p-1 mt-2 text-gray-600 ">{mentor.areas.join(",")}</p>
+
         <div className="flex items-center justify-between mt-4">
           <p className="text-gray-600">Ratings: {mentor.ratings} ⭐</p>
           <button

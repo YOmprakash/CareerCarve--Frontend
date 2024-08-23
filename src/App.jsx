@@ -1,17 +1,15 @@
-
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage';
-import BookingPage from './pages/BookingPage';
-import PaymentPage from './pages/PaymentPage';
-import PaymentSuccessPage from './components/PaymentSuccessPage';
-import Header from './components/Header';
-import Bookings from './pages/Bookings';
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import BookingPage from "./pages/BookingPage";
+import PaymentPage from "./pages/PaymentPage";
+import PaymentSuccessPage from "./components/PaymentSuccessPage";
+import Header from "./components/Header";
+import Bookings from "./pages/Bookings";
 
 function App() {
   return (
     <Router>
-    <Header/>
+      <Header />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/book" element={<BookingPage />} />

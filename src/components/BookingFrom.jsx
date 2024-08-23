@@ -1,27 +1,28 @@
-import { useState } from 'react';
-import axios from 'axios'; // Import axios
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const BookingForm = ({ selectedMentor }) => {
   const [duration, setDuration] = useState(30);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const amount = duration === 30 ? 1000 : duration === 45 ? 1500 : 2000; // Example amounts
+    const amount = duration === 30 ? 1000 : duration === 45 ? 1500 : 2000;
 
-      navigate('/payment', { state: { mentor: selectedMentor, duration, amount } });
-  
-   
+    navigate("/payment", {
+      state: { mentor: selectedMentor, duration, amount },
+    });
   };
 
   return (
     <form onSubmit={handleSubmit} className="mt-6">
-      <h3 className="mb-2 text-xl font-bold">Book a session with {selectedMentor.name}</h3>
+      <h3 className="mb-2 text-xl font-bold">
+        Book a session with {selectedMentor.name}
+      </h3>
       <label className="block mb-2">
         Select Duration:
-        <select 
-          value={duration} 
+        <select
+          value={duration}
           onChange={(e) => setDuration(Number(e.target.value))}
           className="block w-full p-2 mt-1 border border-gray-300 rounded"
         >
@@ -30,7 +31,10 @@ const BookingForm = ({ selectedMentor }) => {
           <option value={60}>60 mins</option>
         </select>
       </label>
-      <button type="submit" className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">
+      <button
+        type="submit"
+        className="px-4 py-2 font-bold text-white rounded bg-[#1C8EA8]"
+      >
         Proceed to Payment
       </button>
     </form>
